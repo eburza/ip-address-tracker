@@ -9,25 +9,23 @@ export default function IpTrackerDetails() {
     if (error) return <div>Error: {error}</div>
 
     return(
-        ipData ? 
-        <div>
+        <div className='display-ip-data'>
             <DetailsElement 
                 dataName='IP Address'
-                dataInfo={ipData.ip}
+                dataInfo={ipData ? ipData.ip : ''}
             />
             <DetailsElement 
                 dataName='Location'
-                dataInfo={`${ipData.city}, ${ipData.country}`}
+                dataInfo={ipData ? `${ipData.city}, ${ipData.country}` : ''}
             />
             <DetailsElement 
                 dataName='Timezone'
-                dataInfo={ipData.timezone.utc}
+                dataInfo={ipData ? ipData.timezone.utc : ''}
             />
             <DetailsElement 
                 dataName='ISP'
-                dataInfo={ipData.connection.isp}
+                dataInfo={ipData ? ipData.connection.isp : ''}
             />
-        </div> :
-        <div>Enter an IP address to see details</div>
+        </div>
     )
 }
