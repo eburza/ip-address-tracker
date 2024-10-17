@@ -1,6 +1,10 @@
+import { useContext } from 'react'
+import IpContext from '../functions/Context'
 import Icon from '../assets/icon-arrow.svg'
 
-export default function SearchIp({onGetSearchValue, searchInput}) {
+export default function SearchIp({onGetSearchValue}) {
+
+    const {searchInput} = useContext(IpContext)
 
     function handleChange(event) {
         onGetSearchValue(event.target.value)

@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <IpContext.Provider value={{searchInput}}>
-      <SearchIp onGetSearchValue={onGetSearchValue} searchInput={searchInput}/>
+      <SearchIp onGetSearchValue={onGetSearchValue} />
       <IpTracker />
       <Map />
     </IpContext.Provider>
