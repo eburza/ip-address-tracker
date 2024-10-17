@@ -1,12 +1,12 @@
-async function getIpLocation(value) {
+
+async function getIpLocation(ipAddress) {
+
     try {
-        const location = await fetch(`https://geo.ipify.org/api/v2/country?apiKey=at_rsZO7bbhWXBRXWG4jqswASBoq9Cl3&ipAddress=${value}`)
+        const location = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API_KEY}=${ipAddress}`)
         const apiLocation = await location.json()
-        console.log(`location: ${apiLocation.location.country}`)
     }
     catch (error) {
         console.log(`error: ${error}`)
-
     }
 }
 
