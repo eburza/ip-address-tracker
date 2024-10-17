@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import IpContext from './functions/Context'
 import Map from './components/Map'
 import IpTracker from './components/IpTracker'
 import SearchIp from './components/SearchIp'
@@ -13,10 +14,10 @@ export default function App() {
   }
 
   return (
-    <>
+    <IpContext.Provider value={{searchInput}}>
       <SearchIp onGetSearchValue={onGetSearchValue} searchInput={searchInput}/>
       <IpTracker />
       <Map />
-    </>
+    </IpContext.Provider>
   )
 }
