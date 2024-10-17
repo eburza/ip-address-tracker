@@ -1,30 +1,28 @@
-import { useContext } from 'react'
-import IpContext from '../functions/Context'
+import { useState } from 'react'
 import Icon from '../assets/icon-arrow.svg'
 
-export default function SearchIp({onGetSearchValue}) {
+export default function SearchIp({onSearch}) {
 
-    const {searchInput} = useContext(IpContext)
+    const [ input, setInpum ] = useState('')
 
     function handleChange(event) {
-        onGetSearchValue(event.target.value)
+        setInpum(event.target.value)
     }
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log(`search for: ${searchInput}`)
+        onSearch(input)
     }
 
     return(
         <form onSubmit={handleSubmit}>
-            <label htmlFor="ip-search">
+            <label htmlFor='ip-search'>
                 <h1>IP Address Tracker</h1>
             </label>
             <input 
-                type="search" 
-                id="ip-search" 
-                name="q" 
-                placeholder="Search for any IP address or domain" 
+                type='text'
+                id='ip-search'
+                placeholder='Search for any IP address or domain' 
                 onChange={handleChange}
             />
 
